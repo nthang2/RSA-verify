@@ -74,13 +74,13 @@ rsa-verify/
 Mỗi phase có **điều kiện qua cổng (gate)**. Chỉ chuyển phase khi gate đạt và người dùng xác nhận.
 
 ### Phase 0 — Dựng pipeline & đánh giá khả thi
-- [ ] P0.1 `git init`; tạo khung thư mục ở mục 1.
+- [ ] P0.1 `git init`; tạo khung thư mục ở mục 1. Tạo `CLAUDE.md` (mục 7), `PROGRESS.md` (mục 8), `ASSUMPTIONS.md`, `DEVIATIONS.md`.
 - [ ] P0.2 **Hỏi người dùng** phiên bản `rsa` cần kiểm chứng (mặc định: bản 0.9.x stable mới nhất) và các tính năng đang dùng (PKCS#1 v1.5 / OAEP / PSS, ký / mã hóa). Ghim commit vào `extract-config.yml`.
 - [ ] P0.3 Cài toolchain: Lean (elan), Charon, Aeneas (hoặc `cargo hax into lean`). Ghi phiên bản chính xác vào `extract-config.yml`. Đọc tài liệu/tutorial của Aeneas để nắm ký hiệu định lý và tactic của phiên bản đã cài.
 - [ ] P0.4 Viết `scripts/extract.sh`, chạy trích xuất. Ghi lại mọi lỗi dịch.
 - [ ] P0.5 Lập `inventory.md`: bảng mọi hàm Rust (trừ test) với cột: module, tên hàm, dịch được?, gọi tới crate ngoài nào, tầng (0–5), trạng thái.
 - [ ] P0.6 Tải test vector: Wycheproof (các file `rsa_oaep_*`, `rsa_pkcs1_*`, `rsa_pss_*`, `rsa_signature_*` phù hợp với tính năng đã chọn) và ví dụ trong RFC 8017 vào `Validation/Vectors/` (ghi nguồn + license). Viết bộ chuyển JSON → dữ liệu Lean.
-- [ ] P0.7 Viết `scripts/check.sh`, `vectors.sh`, `mutants.sh`, `progress.py`. Tạo `CLAUDE.md` (mục 7), `PROGRESS.md` (mục 8), `ASSUMPTIONS.md`, `DEVIATIONS.md`.
+- [ ] P0.7 Viết `scripts/check.sh`, `vectors.sh`, `mutants.sh`, `progress.py`.
 - [ ] P0.8 Viết báo cáo khả thi `review/P0-feasibility.md`: % hàm dịch được, các hàm cần patch, các crate ngoài cần giả định (bigint, sha2/digest, rand_core, subtle, zeroize…), đề xuất phạm vi.
 
 **Gate 0:** `lake build` xanh trên code sinh tự động; các script chạy được; test vector đã nạp; người dùng đã chọn
@@ -192,7 +192,7 @@ số định lý phụ thuộc gián tiếp vào `sorry`/giả định; số vec
 
 ---
 
-## 7. Nội dung `CLAUDE.md` (tạo ở P0.7)
+## 7. Nội dung `CLAUDE.md` (tạo ở P0.1)
 
 ```markdown
 # Luật làm việc cho Claude Code — rsa-verify
@@ -219,7 +219,7 @@ BẮT BUỘC:
 
 ---
 
-## 8. Mẫu `PROGRESS.md` (tạo ở P0.7)
+## 8. Mẫu `PROGRESS.md` (tạo ở P0.1)
 
 ```markdown
 # PROGRESS
